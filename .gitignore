@@ -4,6 +4,7 @@ node_modules
 /dist
 /.vs/**
 
+bin/webyml/**
 obj/**
 bak/**
 conver/obj/*.*
