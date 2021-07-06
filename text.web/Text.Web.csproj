@@ -57,14 +57,14 @@
     <Compile Include="WebRunner.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\text.common\Text.Common.csproj">
-      <Project>{5d36a38f-37e7-4c67-92ac-f4534f15c7bd}</Project>
-      <Name>Text.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="#example_format.yml" />
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\text.common\text.common.csproj">
+      <Project>{5d36a38f-37e7-4c67-92ac-f4534f15c7bd}</Project>
+      <Name>text.common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

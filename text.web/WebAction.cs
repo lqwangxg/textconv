@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using Text.Common;
-
 namespace Text.Web
 {
     public class WebAction

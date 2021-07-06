@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Linq;
-using System.IO;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Text.Common;
 
 namespace Text.Web
 {
@@ -26,11 +23,6 @@ namespace Text.Web
                 srcFile = getValue("-f", args);
             }
 
-            //if (string.IsNullOrEmpty(srcfolder) && string.IsNullOrEmpty(srcFile))
-            //{
-            //    Console.WriteLine("[-d srcfolder] or [-f srcfile] is required.");
-            //    return;
-            //}
             //==============================================================
             if (args.Contains("-web"))
             {
@@ -39,10 +31,6 @@ namespace Text.Web
                 {
                     wr.Run(srcFile);
                 }
-                //else if (!string.IsNullOrEmpty(srcfolder))
-                //{
-                //    wr.RunBatch(srcfolder);
-                //}
                 return;
             }
             Console.WriteLine("text.web.exe -web -f filepath ");
