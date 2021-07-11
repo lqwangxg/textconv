@@ -1,0 +1,14 @@
+D:\workspace\C#\textconv\noder\obj\Debug\noder.csprojAssemblyReference.cache
+D:\workspace\C#\textconv\noder\bin\Debug\CaseDescMap.txt
+D:\workspace\C#\textconv\noder\bin\Debug\WordDictionary.txt
+D:\workspace\C#\textconv\noder\bin\Debug\noder.exe.config
+D:\workspace\C#\textconv\noder\bin\Debug\noder.exe
+D:\workspace\C#\textconv\noder\bin\Debug\noder.pdb
+D:\workspace\C#\textconv\noder\bin\Debug\HtmlAgilityPack.dll
+D:\workspace\C#\textconv\noder\bin\Debug\text.common.dll
+D:\workspace\C#\textconv\noder\bin\Debug\YamlDotNet.dll
+D:\workspace\C#\textconv\noder\bin\Debug\text.common.pdb
+D:\workspace\C#\textconv\noder\bin\Debug\YamlDotNet.xml
+D:\workspace\C#\textconv\noder\obj\Debug\noder.csproj.CopyComplete
+D:\workspace\C#\textconv\noder\obj\Debug\noder.exe
+D:\workspace\C#\textconv\noder\obj\Debug\noder.pdb

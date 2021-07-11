@@ -20,12 +20,12 @@ namespace TextConv
                 Console.WriteLine("TextConv [-c COMMAND_KEY] [-x XPATH] [-d srcfolder] [-f srcfile]");
                 return;
             }
-            string cmd = getValue("-c", args);
+            string cmd = StringUtils.GetArgValue("-c", args);
 
             string srcfolder = string.Empty;
             if (args.Contains("-d"))
             {
-                srcfolder = getValue("-d", args);
+                srcfolder = StringUtils.GetArgValue("-d", args);
                 if (string.IsNullOrEmpty(srcfolder))
                 {
                     srcfolder = Config.GetAppSettingValue("srcfolder");
@@ -35,7 +35,7 @@ namespace TextConv
             string srcFile = string.Empty;
             if (args.Contains("-f"))
             {
-                srcFile = getValue("-f", args);
+                srcFile = StringUtils.GetArgValue("-f", args);
             }
             if (string.IsNullOrEmpty(srcfolder) && string.IsNullOrEmpty(srcFile))
             {
@@ -75,11 +75,11 @@ namespace TextConv
                 if (args.Contains("-p"))
                 {
                     ReplaceRuleItem ri = new ReplaceRuleItem();
-                    ri.pattern = getValue("-p", args);
-                    ri.replacement = getValue("-r", args);
+                    ri.pattern = StringUtils.GetArgValue("-p", args);
+                    ri.replacement = StringUtils.GetArgValue("-r", args);
                     if (!string.IsNullOrEmpty(ri.pattern))
                     {
-                        string content = getValue("-input", args);
+                        string content = StringUtils.GetArgValue("-input", args);
                         if (!string.IsNullOrEmpty(content))
                         {
                             Console.WriteLine(ri.replaceText(content));
@@ -102,33 +102,13 @@ namespace TextConv
                 if (args.Contains("-p") && args.Contains("-r"))
                 {
                     ReplaceRuleItem ri = new ReplaceRuleItem();
-                    ri.pattern = getValue("-p", args);
-                    ri.replacement = getValue("-r", args);
+                    ri.pattern = StringUtils.GetArgValue("-p", args);
+                    ri.replacement = StringUtils.GetArgValue("-r", args);
                     ri.Rename(srcfolder);
                 }
             }
         }
         
-        private static string getValue(string cmdPattern, string[] args) 
-        {
-            int x = args.ToList().IndexOf(cmdPattern);
-            if (x > -1)
-            {
-                string v = args[x + 1];
-                if(Regex.IsMatch(v, @"^--?[\w\-]+$"))
-                {
-                    return "";
-                }
-                else
-                {
-                    return v;
-                }
-            }
-            else {
-                return "";
-            }
-        }
-
         #region Html Parser for export
         private static void HtmlParseFolder(string folder, List<XPathRuleItem> ruleItems)
         {
@@ -189,6 +169,5 @@ namespace TextConv
         #endregion
 
         
-
     }
 }

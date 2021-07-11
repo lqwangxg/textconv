@@ -1,0 +1,13 @@
+﻿SEL_IMDEPT	所属
+SEL_BACK	差戻し
+ACT_DOWNLOAD_FILE	ダウンロード
+S_PAGE_HELP	ヘルプ
+SEL_NUMPERPAGE	最大表示件数
+p_sNextArrow	ページャリンク: >
+p_sPaging	ページャリンク: <
+p_oResultInfo.ALL	指定ページ
+p_oResultInfo.START	ページャリンク: <<
+p_oResultInfo.END	ページャリンク: >>
+p_sBtnVal	起票
+fnc_clearLine	1行クリア
+HISTORY_ID	履歴

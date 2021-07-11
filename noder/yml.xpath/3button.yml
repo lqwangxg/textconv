@@ -1,0 +1,25 @@
+﻿name: 3button   # for button
+xpath: //*[(@type='button' or @type='submit') and not(contains(@style, 'hidden') or contains(@style, 'display:none') or @disabled)]
+
+keypattern:	
+- attrname: value
+  pattern: '["\s]*([^"]+)["\s]*'
+  replacement: $1
+textxpath: []
+eventText: '「{0}」ボタン押下'
+caseDescFormat: '{eventname}の★★★画面が表示される'
+namePatternFormats:
+- pattern: \w+者
+  caseformat: "{eventname}のユーザ検索画面が表示される"
+
+- pattern: (\w+画面)へ
+  caseformat: "$1が表示される"
+
+- pattern: (ユーザ検索)
+  caseformat: "$1画面が表示される"
+
+- pattern: (ファイル)追加
+  caseformat: "$1選択画面が表示される"
+
+- pattern: ACT_DEL_FILE
+  caseformat: 選択ファイルが削除される

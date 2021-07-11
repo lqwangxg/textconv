@@ -1,0 +1,13 @@
+﻿name: 5pagelink
+xpath: //imart[(@type='link' or (@href and not (@rel))) and (contains(@value,'START') or contains(@value,'END') or contains(@value,'.ALL') or contains(@value,'sPaging') or contains(@value,'sNextArrow'))]
+keypattern: 
+- attrname: onclick
+  pattern: setSortInfo\('(\w+)'\)
+- attrname: onclick
+  pattern: return\s+([^""']+)
+- attrname: onclick
+  pattern: (\w+[^""']+)
+- attrname: href
+  pattern: (\w+[^""]+)
+eventText: '「{0}」押下'
+caseDescFormat: '{eventname}の検索結果一覧が表示される'
