@@ -2,7 +2,7 @@
   "profiles": {
     "TextConv": {
       "commandName": "Project",
-      "commandLineArgs": " -x -d C:\\tmp\\wangx\\_projects\\TOYO\\Workflow\\src\\main\\webapp\\WEB-INF\\view\\edpa"
+      "commandLineArgs": " -c importpublicstorage -d  C:\\tmp\\wangx\\_projects\\TOYO\\develop\\im-workflow\\src\\main\\java\\jp\\co\\toyokohan\\imwf\\process\\"
     }
   }
 }

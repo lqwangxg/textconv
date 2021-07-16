@@ -41,9 +41,9 @@ rules:
 # ex. 'if(aaa || bbb){...}' should not be replaced as 'if(aaa + bbb){...}'
 - pattern: \|\|  
   replacement: +
-  rangeFrom: \s*(if|while)\s*\(	
-  rangeTo: \)[^\)\{]*\{	
-  rangeSkip: true               
+  rangeFrom: \s*(if|while)\s*\(
+  rangeTo: \)[^\)\{]*\{
+  rangeSkip: true
   
 # skip the match when any like pattern matched the match.value
 # ex. 'if(aaa || bbb){...}' should not be replaced as 'if(aaa + bbb){...}'

@@ -1,0 +1,31 @@
+﻿rules:
+- pattern: Networkfile\s+(\w+)\s*=\s*new\s+NetworkFile\((\w+)\s*\+\s*File.separator\s*\+\s*(\w+)\);
+  replacement: PublicStorage $1 = new PublicStorage($2, $3);
+
+- pattern: Networkfile\s+(\w+)\s*=\s*new\s+NetworkFile\((\w+)\s*\+\s*"\/"\s*\+\s*(\w+)\);
+  replacement: PublicStorage $1 = new PublicStorage($2, $3);
+  
+- pattern: Networkfile\s+(\w+)\s*=\s*new\s+NetworkFile\((\w+)\);
+  replacement: PublicStorage $1 = new PublicStorage($2);
+
+- pattern: (\w+)\s*=\s*new\s+NetworkFile\((\w+)\);
+  replacement: $1 = new PublicStorage($2);
+
+- pattern: Networkfile\s+(\w+)\s*=\s*new\s+(NetworkFile|PublicStorage)\((\w+)\);
+  replacement: PublicStorage $1 = new PublicStorage($3);
+
+- pattern: jp.co.intra_mart.foundation.service.client.file.NetworkFile;
+  replacement: jp.co.intra_mart.foundation.service.client.file.PublicStorage;
+
+- pattern: jp.co.intra_mart.foundation.service.client.file.NetworkFile;
+  replacement: jp.co.intra_mart.foundation.service.client.file.PublicStorage;
+
+- pattern: result = (netWorkFile.save\S+)
+  replacement: |
+    try{
+        $1
+        result = true;
+    }catch(Exception ex){
+        result = false;
+    }
+

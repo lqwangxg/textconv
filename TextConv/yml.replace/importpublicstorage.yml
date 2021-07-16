@@ -1,0 +1,21 @@
+rules:
+
+- pattern: File\.separator
+  replacement: PublicStorage.FILE_SEPARATOR
+
+- pattern: import java.io.File;
+  replacement: |-
+    import java.io.File;
+    import jp.co.intra_mart.foundation.service.client.file.PublicStorage;
+    
+  # skip replacement pattern: if include in utils.
+  skipInput: 
+    patterns:
+    - import jp.co.intra_mart.foundation.service.client.file.PublicStorage;
+    isAnd: true  
+
+  # skip replacement pattern: if include in utils.  
+  mustInput:
+    patterns:
+    - PublicStorage.FILE_SEPARATOR
+    isAnd: false

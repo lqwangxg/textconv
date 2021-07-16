@@ -1,0 +1,17 @@
+rules:
+- pattern: import jp.co.intra_mart.product.pdfmaker.net.CSVDoc;\nimport jp.co.intra_mart.foundation.service.client.file.PublicStorage;
+  replacement: |-
+    import jp.co.intra_mart.product.pdfmaker.net.CSVDoc;
+    
+  # skip replacement pattern: if include in utils.
+  skipInput: 
+    patterns:
+    - src=import jp.co.intra_mart.foundation.service.client.file.PublicStorage;
+    isAnd: true  
+
+  # skip replacement pattern: if include in utils.  
+  mustInput:
+    patterns:
+    - PublicStorage.FILE_SEPARATOR
+    - deleteAttachFile
+    
