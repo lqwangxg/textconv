@@ -30,3 +30,4 @@ D:\workspace\C#\textconv\XPathUI\obj\Debug\XPathUI.csproj.GenerateResource.cache
 D:\workspace\C#\textconv\XPathUI\obj\Debug\XPathUI.csproj.CopyComplete
 D:\workspace\C#\textconv\XPathUI\obj\Debug\XPathUI.exe
 D:\workspace\C#\textconv\XPathUI\obj\Debug\XPathUI.pdb
+D:\workspace\C#\textconv\XPathUI\obj\Debug\XPathUI.csprojAssemblyReference.cache

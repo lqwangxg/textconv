@@ -1,0 +1,50 @@
+# for example format.
+name: exampleformat
+xpath: //*[(@type='button' or @type='submit') and not(contains(@style, 'hidden') or @disabled)]
+
+#list. find eventkey of the element.
+keypattern:
+- attrname: value
+  pattern: '["\s]*([^"]+)["\s]*'
+  #replacement can be omitted.
+  replacement: $1
+
+- attrname: id
+  pattern: \w+
+
+- attrname: id
+  pattern: \w+
+  
+# list. find display text of the element. reference attrname and value
+textxpath:  
+  - >-
+    //*[(@type='button' or @type='submit') and not(contains(@style, 'hidden') or
+    @disabled) and @{0}="{1}"]/ancestor::node()/preceding-sibling::td[1]/text()
+# if pattern match eventName, 
+# using caseformat for case description. 
+namePatternFormats:
+- pattern: \w+者
+  caseformat: "{eventname}のユーザ検索画面が表示される"
+
+- pattern: (\w+画面)へ
+  caseformat: "$1が表示される"
+
+- pattern: (ユーザ検索)
+  caseformat: "$1画面が表示される"
+
+- pattern: (ファイル)追加
+  caseformat: "$1選択画面が表示される"
+
+- pattern: ACT_DEL_FILE
+  caseformat: 選択ファイルが削除される
+
+- pattern: .*fnc_clearLine\(["'](\d+)["']\).*
+  textformat: 「$1行目のクリア」リンク押下
+  caseformat: "$1行目の表示データがクリアされる"
+
+# default textformat. string.format(eventText, eventName). 
+# eventName is the display text of element.
+eventText: '「{0}」ボタン押下'
+
+# default case description format. ref eventName.
+caseDescFormat: '{eventname}の★★★画面が表示される'

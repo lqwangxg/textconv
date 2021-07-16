@@ -1,0 +1,10 @@
+﻿name: 6sortlink
+xpath: //*[(@type='link' or (@href and not (@rel))) and (contains(@onclick,'DESC') or contains(@onclick,'ASC'))]
+keypattern: 
+- attrname: onclick
+  pattern: .*setSortInfo\('(\w+)'.*
+  replacement: $1
+textxpath:
+- //*[(contains(@{0},"{1}") and contains(@onclick,'ASC'))]/preceding-sibling::text()[1]
+eventText: '検索結果一覧ヘッダー: {0} "{1}" 押下'
+caseDescFormat: '検索結果が{eventname}の{sorttype}でソートされる'

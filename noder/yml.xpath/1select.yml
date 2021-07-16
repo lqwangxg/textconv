@@ -1,0 +1,14 @@
+﻿name: 1select       # for dropdownlist
+xpath: //*[@type='select' or @type='c_selectdb']
+keypattern: 
+- attrname: name
+  pattern: (\w+)
+textxpath:
+- //*[(@type='select' or @type='c_selectdb') and (@{0}="{1}")]/preceding-sibling::text()
+- //*[(@type='select' or @type='c_selectdb') and (@{0}="{1}")]/parent::td/preceding-sibling::td[1]/descendant-or-self::text()
+- //*[(@type='select' or @type='c_selectdb') and (@{0}="{1}")]/parent::td/preceding-sibling::td/text()
+- //*[(@type='select' or @type='c_selectdb') and (@{0}="{1}")]/ancestor::node()/preceding-sibling::td[1]/text()
+- //*[(@type='select' or @type='c_selectdb') and (@{0}="{1}")]/ancestor::node()/preceding-sibling::td[1]/child::node()/text()
+- //*[(@type='select' or @type='c_selectdb') and (@{0}="{1}")]/ancestor::node()[1]/preceding-sibling::node()[2]/child::node()[1]/text()
+eventText: 初期表示
+caseDescFormat: '「{eventname}」のプルダウンに選択可能なリストが表示される'

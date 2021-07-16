@@ -1,0 +1,51 @@
+﻿name: 4alink
+xpath: //*[(@type='link' or (@href and not (@rel))) and not (contains(@onclick,'clickTab')) and not(contains(@onclick,'setSortInfo'))]
+keypattern:
+- attrname: action
+  pattern: ([\w\.]+)
+- attrname: page
+  pattern: ([\w\.]+)
+- attrname: onclick
+  pattern: openWindow\(('[\w\.]+',\s*)*'[\w\.]+'\)
+- attrname: onclick
+  pattern: ^([\w\.]+)\(.*
+- attrname: onclick
+  pattern: ^return\s+(fnc_clickTab\(\d\))
+- attrname: onclick
+  pattern: ^return\s+([\w\.]+)\(.*
+- attrname: href
+  pattern: javascript:([\w\.]+)\(.*
+- attrname: value
+  pattern: ([\w\.]+)
+textxpath:
+- //*[(@type='link' or (@href and not (@rel))) and not (contains(@onclick,'clickTab')) and not(contains(@onclick,'setSortInfo')) and contains(@{0},"{1}")]/text()
+- //*[(@type='link' or (@href and not (@rel))) and not (contains(@onclick,'clickTab')) and not(contains(@onclick,'setSortInfo')) and contains(@{0},"{1}")]/img[1]/@alt
+- //*[(@type='link' or (@href and not (@rel))) and not (contains(@onclick,'clickTab')) and not(contains(@onclick,'setSortInfo')) and contains(@{0},"{1}")]/parent::td/preceding-sibling::td[position()=1]/text()
+- //*[(@type='link' or (@href and not (@rel))) and not (contains(@onclick,'clickTab')) and not(contains(@onclick,'setSortInfo')) and contains(@{0},"{1}")]/preceding-sibling::text()
+- //*[(@type='link' or (@href and not (@rel))) and not (contains(@onclick,'clickTab')) and not(contains(@onclick,'setSortInfo')) and contains(@{0},"{1}")]/parent::td/preceding-sibling::td[position()=2]/text()
+eventText: 「{0}」リンク押下
+namePatternFormats:
+- pattern: \w+者
+  caseformat: "{eventname}のユーザ検索画面が表示される"
+- pattern: (\w+画面)へ
+  caseformat: "$1が表示される"
+
+- pattern: .*fnc_clearLine\(["'](\d+)["']\).*
+  textformat: 「$1行目のクリア」リンク押下
+  caseformat: "$1行目の表示データがクリアされる"
+- pattern: .*fnc_startTemp\(.*
+  textformat: "作成中の処理リンク押下"
+  caseformat: "ワークフロー処理画面が表示される"
+- pattern: .*fnc_startProcess\(.*
+  textformat: "処理リンク押下"
+  caseformat: "ワークフロー処理画面が表示される"
+- pattern: .*fnc_showDetail\(.*
+  textformat: "詳細リンク押下"
+  caseformat: "ワークフロー詳細画面が表示される"
+- pattern: .*fnc_openFlow\(.*
+  textformat: "フローリンク押下"
+  caseformat: "フロー画面が表示される"
+- pattern: .*fnc_downloadFile\(.*
+  textformat: "ファイル名リンク押下"
+  caseformat: "対応ファイルがダウンロードされる"
+caseDescFormat: '{eventname}の★★★画面が表示される'

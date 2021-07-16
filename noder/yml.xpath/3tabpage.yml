@@ -1,0 +1,18 @@
+﻿name: 3tabpage
+xpath: //*[(@type='link' or @href) and (contains(@onclick,'clickTab'))]
+keypattern:	
+- attrname: action
+  pattern: ([\w\.]+)
+- attrname: onclick
+  pattern: ^return\s+(fnc_clickTab\(\d\))
+- attrname: onclick
+  pattern: ^return\s+([\w\.]+)\(.*
+- attrname: href
+  pattern: javascript:([\w\.]+)\(.*
+textxpath:
+- //*[(@type='link' or @href) and (contains(@onclick,'clickTab')) and contains(@{0},"{1}")]/text()
+- //*[(@type='link' or @href) and (contains(@onclick,'clickTab')) and contains(@{0},"{1}")]/img[1]/@alt
+- //*[(@type='link' or @href) and (contains(@onclick,'clickTab')) and contains(@{0},"{1}")]/parent::td/preceding-sibling::td[position()=1]/text()
+- //*[(@type='link' or @href) and (contains(@onclick,'clickTab')) and contains(@{0},"{1}")]/preceding-sibling::text()
+eventText: 「{0}」リンク押下
+caseDescFormat: '「{eventname}」タブが展開状態で表示される'

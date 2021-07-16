@@ -108,5 +108,25 @@ namespace Text.Common
             string currPath = Environment.CurrentDirectory + "\\Application_" + DateTime.Today.ToString("yyyyMMdd") + ".log";
             File.AppendAllText(currPath, content, Config.Encoding);
         }
+        public static string GetArgValue(string cmdHeader, string[] args)
+        {
+            int x = args.ToList().IndexOf(cmdHeader);
+            if (x > -1)
+            {
+                string v = args[x + 1];
+                if (Regex.IsMatch(v, @"^--?[\w\-]+$"))
+                {
+                    return "";
+                }
+                else
+                {
+                    return v;
+                }
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
 }
