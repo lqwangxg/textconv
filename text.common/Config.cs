@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Configuration;
 
@@ -29,8 +27,21 @@ namespace Text.Common
         {
             get
             {
-                string encoding = GetAppSettingValue2("encoding", "UTF-8");
-                return Encoding.GetEncoding(encoding);
+                string encoding = GetAppSettingValue("encoding");
+                //Encoding = New System.Text.UTF8Encoding(False)
+                if (string.IsNullOrEmpty(encoding))
+                {
+                    return new UTF8Encoding(false);
+                }
+                
+                if (encoding.Equals("utf-8",StringComparison.OrdinalIgnoreCase))
+                {
+                    return new UTF8Encoding(false);
+                }
+                else
+                {
+                    return Encoding.GetEncoding(encoding); ;
+                }
             }
         }
     }

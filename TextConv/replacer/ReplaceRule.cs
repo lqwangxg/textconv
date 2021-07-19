@@ -87,6 +87,8 @@ namespace TextConv
         }
         public void ReplaceFile(string file)
         {
+            //ファイル単位置換
+            Results.Clear();
             if (!File.Exists(file)) return;
             if (isSkipFile(file)) return;
             string ext = new FileInfo(file).Extension;
